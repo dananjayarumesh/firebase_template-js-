@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title></title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCfewfeiHR1_VUuqlKbzRiJNrpuJdDQ-4g",
+            authDomain: "chat-test-111.firebaseapp.com",
+            databaseURL: "https://chat-test-111.firebaseio.com",
+            projectId: "chat-test-111",
+            storageBucket: "",
+            messagingSenderId: "92816488995"
+        };
+        firebase.initializeApp(config);
+
+        var ref = firebase.database().ref();
+
+        ref.on("value", function (snapshot) {
+            console.log(snapshot.val().chatRealTime.Conversation);
+        }, function (error) {
+            console.log("Error: " + error.code);
+        });
+
+        push();
+        function push() {
+            var dataChat = firebase.database().ref("chatRealTime/");
+
+//            playersRef.set ({
+//                John: {
+//                    number: 1,
+//                    age: 30
+//                },
+//
+//                Amanda: {
+//                    number: 2,
+//                    age: 20
+//                },
+//                kewin: {
+//                    number: 2,
+//                    age: 22
+//                },
+//                test: {
+//                    number: 22,
+//                    age: 22
+//                },
+//                ddddddddddddddddd: {
+//                    number: 324,
+//                    age: 234
+//                }
+//            });
+
+            dataChat.set({
+                Sender: 1,
+                Receiver: [1, 2, 3],
+                Conversation: 35
+            });
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
